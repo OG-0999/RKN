@@ -1,0 +1,72 @@
+[
+  {
+    "pdf": "Adwaith Brochure - Final small .pdf",
+    "property": "Unmapped",
+    "pages": 8,
+    "textFile": "extracted_text/Adwaith Brochure - Final small .txt",
+    "characters": 150
+  },
+  {
+    "pdf": "Birla Evara Customer Presentation_Feb 2026.pdf",
+    "property": "Birla Evara",
+    "pages": 31,
+    "textFile": "extracted_text/Birla Evara Customer Presentation_Feb 2026.txt",
+    "characters": 4863
+  },
+  {
+    "pdf": "Cost sheet Myhna.pdf",
+    "property": "Unmapped",
+    "pages": 1,
+    "textFile": "extracted_text/Cost sheet Myhna.txt",
+    "characters": 1743
+  },
+  {
+    "pdf": "General Costsheet T 1,2,3,4&5.pdf",
+    "property": "Unmapped",
+    "pages": 1,
+    "textFile": "extracted_text/General Costsheet T 1,2,3,4&5.txt",
+    "characters": 3655
+  },
+  {
+    "pdf": "Meda Floor Plan.pdf",
+    "property": "MEDA East Winds",
+    "pages": 11,
+    "textFile": "extracted_text/Meda Floor Plan.txt",
+    "characters": 8866
+  },
+  {
+    "pdf": "Meda_Sales_Presenter_Aug25.pdf",
+    "property": "MEDA East Winds",
+    "pages": 19,
+    "textFile": "extracted_text/Meda_Sales_Presenter_Aug25.txt",
+    "characters": 13728
+  },
+  {
+    "pdf": "Nambiar District 25 Phase 2 mini brochure final.pdf",
+    "property": "Nambiar District 25",
+    "pages": 14,
+    "textFile": "extracted_text/Nambiar District 25 Phase 2 mini brochure final.txt",
+    "characters": 10407
+  },
+  {
+    "pdf": "SSVR_MERIDIAN_BROCHURE.pdf",
+    "property": "SSVR Meridian",
+    "pages": 10,
+    "textFile": "extracted_text/SSVR_MERIDIAN_BROCHURE.txt",
+    "characters": 10579
+  },
+  {
+    "pdf": "The Sports Province_A4_Brochure_V7_Jul25.pdf",
+    "property": "The Sports Province",
+    "pages": 5,
+    "textFile": "extracted_text/The Sports Province_A4_Brochure_V7_Jul25.txt",
+    "characters": 3346
+  },
+  {
+    "pdf": "TRL_Main Brochure_V26.pdf",
+    "property": "TRL (The Right Life)",
+    "pages": 84,
+    "textFile": "extracted_text/TRL_Main Brochure_V26.txt",
+    "characters": 132517
+  }
+]
