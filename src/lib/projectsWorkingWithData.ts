@@ -376,7 +376,7 @@ export const workingProjects: WorkingProject[] = [
         title: "Location",
         items: [
           "Located in Panathur, MEDA East Winds keeps you close to schools, tech parks, healthcare, and dining - with the upcoming metro just minutes away.",
-          "Bangalore Address: Meda East Winds, Sy.No. 12/1/2/3, Opp. Prakruthi Enclave, Panathur, Bangalore - 560103",
+          "3rd Floor, No. 589, 60 Feet Main Road, A.E.C.S. Layout, Above State Bank of India, Kundlahalli, Bangalore - 560037",
         ],
       },
       {

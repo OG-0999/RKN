@@ -56,7 +56,27 @@ export function Footer() {
             <ul className="space-y-3 text-sm text-gray-300">
               <li className="flex gap-3">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 mt-1"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-                <span>Level 14, Concorde Tower C, UB City, 1 Vittal Mallya Road, Bengaluru 560001</span>
+                <div>
+                  <span>
+                    Right Key Navigators India Private Limited<br/>
+                    3rd Floor, No. 589, 60 Feet Main Road,<br/>
+                    A.E.C.S. Layout,<br/>
+                    Above State Bank of India,<br/>
+                    Kundalahalli,<br/>
+                    Bangalore – 560037,<br/>
+                    Karnataka, India
+                  </span>
+                  <div className="mt-3">
+                    <a
+                      href="https://www.google.com/maps/dir/?api=1&destination=3rd%20Floor%2C%20No.%20589%2C%2060%20Feet%20Main%20Road%2C%20A.E.C.S.%20Layout%2C%20Above%20State%20Bank%20of%20India%2C%20Kundalahalli%2C%20Bangalore%20-%20560037"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block bg-white text-[#1C1C2E] px-3 py-1 rounded-md font-semibold text-xs mt-1"
+                    >
+                      Get Directions
+                    </a>
+                  </div>
+                </div>
               </li>
               <li className="flex gap-3">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 mt-1"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>

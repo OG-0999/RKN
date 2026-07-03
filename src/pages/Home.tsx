@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useEffect, useState, useMemo } from "react";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { Link } from "wouter";
 import { ServiceCards } from "@/components/ServiceCards";
 import { ProjectsWorkingWith } from "@/components/ProjectsWorkingWith";
@@ -26,9 +26,13 @@ const heroImages = [
   "/assets/projects/trl-the-right-life/trl-10-11-marketing-collaterals-mar-2026-1_p001_x327_1_gallery.jpeg",
 ];
 
+import useIsMobile from "@/hooks/useIsMobile";
+
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const activeSlide = slides[currentSlide % slides.length];
+  const isMobile = useIsMobile();
+  const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -63,11 +67,15 @@ export default function Home() {
       {/* SECTION 1 - HERO */}
       <section className="hero-container relative h-[100dvh] w-full overflow-hidden bg-[#1C1C2E]">
         {heroImages.map((imagePath, index) => (
-          <div
+          <img
             key={imagePath}
             className={`hero-bg-slide ${index === currentSlide ? "active" : ""}`}
-            style={{ backgroundImage: `url(${imagePath})` }}
+            src={imagePath}
+            alt=""
             aria-hidden="true"
+            decoding="async"
+            loading={index === 0 ? "eager" : "lazy"}
+            fetchPriority={index === 0 ? "high" : "low"}
           />
         ))}
         
@@ -78,31 +86,53 @@ export default function Home() {
         <div className="hero-content h-full flex items-center">
           <div className="container mx-auto px-4 md:px-8">
             <div className="max-w-3xl">
-              <AnimatePresence mode="wait">
-                <motion.h1
-                  key={`title-${currentSlide}`}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.6, delay: 0.2 }}
-                  className="text-5xl md:text-7xl font-serif font-bold text-white mb-6 leading-tight drop-shadow-lg"
-                >
-                  {activeSlide.title}
-                </motion.h1>
-              </AnimatePresence>
-              
-              <AnimatePresence mode="wait">
-                <motion.p
-                  key={`subtitle-${currentSlide}`}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.6, delay: 0.4 }}
-                  className="text-xl md:text-2xl text-gray-200 mb-10 drop-shadow-md"
-                >
-                  {activeSlide.subtitle}
-                </motion.p>
-              </AnimatePresence>
+              {/* Combine title+subtitle animation on mobile to reduce simultaneous layers */}
+              {isMobile ? (
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={`hero-text-${currentSlide}`}
+                    initial={shouldReduceMotion ? {} : { opacity: 0, y: 20 }}
+                    animate={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
+                    exit={shouldReduceMotion ? {} : { opacity: 0, y: -20 }}
+                    transition={{ duration: 0.6, delay: 0.2 }}
+                  >
+                    <h1 className="text-5xl md:text-7xl font-serif font-bold text-white mb-6 leading-tight drop-shadow-lg">
+                      {activeSlide.title}
+                    </h1>
+                    <p className="text-xl md:text-2xl text-gray-200 mb-10 drop-shadow-md">
+                      {activeSlide.subtitle}
+                    </p>
+                  </motion.div>
+                </AnimatePresence>
+              ) : (
+                <>
+                  <AnimatePresence mode="wait">
+                    <motion.h1
+                      key={`title-${currentSlide}`}
+                      initial={shouldReduceMotion ? {} : { opacity: 0, y: 20 }}
+                      animate={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
+                      exit={shouldReduceMotion ? {} : { opacity: 0, y: -20 }}
+                      transition={{ duration: 0.6, delay: 0.2 }}
+                      className="text-5xl md:text-7xl font-serif font-bold text-white mb-6 leading-tight drop-shadow-lg"
+                    >
+                      {activeSlide.title}
+                    </motion.h1>
+                  </AnimatePresence>
+
+                  <AnimatePresence mode="wait">
+                    <motion.p
+                      key={`subtitle-${currentSlide}`}
+                      initial={shouldReduceMotion ? {} : { opacity: 0 }}
+                      animate={shouldReduceMotion ? {} : { opacity: 1 }}
+                      exit={shouldReduceMotion ? {} : { opacity: 0 }}
+                      transition={{ duration: 0.6, delay: 0.4 }}
+                      className="text-xl md:text-2xl text-gray-200 mb-10 drop-shadow-md"
+                    >
+                      {activeSlide.subtitle}
+                    </motion.p>
+                  </AnimatePresence>
+                </>
+              )}
 
               <motion.div
                 initial={{ opacity: 0, y: 20 }}

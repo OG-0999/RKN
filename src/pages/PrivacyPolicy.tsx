@@ -110,7 +110,7 @@ const POLICY_SECTIONS: PolicySection[] = [
     paragraphs: [
       "If you have any questions, requests, or concerns regarding this Privacy Policy or your personal information, please contact us:",
       "Email: contact@rightkeynavigators.com",
-      "Address: Level 14, Concorde Tower C, UB City, 1 Vittal Mallya Road, Bengaluru 560001",
+      "Address: Right Key Navigators India Private Limited, 3rd Floor, No. 589, 60 Feet Main Road, A.E.C.S. Layout, Above State Bank of India, Kundalahalli, Bangalore – 560037, Karnataka, India",
     ],
   },
 ];

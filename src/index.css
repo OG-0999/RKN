@@ -352,6 +352,9 @@
   height: 100%;
   background-size: cover;
   background-position: center;
+  /* for img fallbacks */
+  display: block;
+  object-fit: cover;
   opacity: 0;
   transform: scale(1.1);
   transition: opacity 1.5s ease, transform 6s ease;
@@ -402,7 +405,7 @@
 
   .hero-bg-slide {
     transition: opacity 1s ease, transform 4s ease;
-    transform: scale(1.05);
+    transform: scale(1.03);
   }
 
   .hero-bg-slide.active {
@@ -411,6 +414,28 @@
 
   .cursor-light {
     display: none;
+  }
+
+  /* Reduce heavy visual effects on mobile to save GPU work while preserving appearance */
+  .glass-card {
+    backdrop-filter: none;
+    background-color: rgba(255,255,255,0.6);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+  }
+
+  .backdrop-blur-sm, .backdrop-blur-md, .backdrop-blur-lg {
+    backdrop-filter: none !important;
+  }
+
+  /* Pause long-running marquee animation on mobile to reduce repaints */
+  .projects-marquee-track {
+    animation-play-state: paused;
+  }
+
+  /* Reduce decorative large blur sizes */
+  .absolute.-top-40.-left-40.w-96.h-96.rounded-full.blur-3xl,
+  .absolute.-bottom-40.-right-40.w-96.h-96.rounded-full.blur-3xl {
+    filter: blur(16px);
   }
 
   .container {
